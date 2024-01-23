@@ -1,0 +1,4 @@
+syntax = "proto3";
+
+// 占位符作用
+// message Empty {}
