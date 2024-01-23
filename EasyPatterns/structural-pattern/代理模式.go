@@ -35,6 +35,7 @@ func (as *AfricaShopping) Buy(goods *Goods) {
 	fmt.Println("去非洲进行了购物, 买了 ", goods.Kind)
 }
 
+// ============================= 代理模式 ===============================================
 // 海外代理
 type OverseasProxy struct {
 	shopping Shopping
