@@ -9,6 +9,7 @@ https://juejin.cn/post/7236213437801087031
 1. 在函数之间传递大型数据结构
 2. 修改函数内变量的值
 3. 动态分配内存
+4. 函数返回指针类型
 */
 
 // 2. 修改函数内变量的值
@@ -25,7 +26,7 @@ func main2() {
 }
 
 // 3. 动态分配内存
-func main() {
+func main4() {
 	// 声明一个指向 int 类型的指针 p
 	var p *int = new(int)
 	*p = 100
@@ -90,4 +91,17 @@ func main1() {
 	changeWorker(&w2)
 	fmt.Println(w2) //{999999.99 老板}
 
+}
+
+// -------------- end --------------------
+
+// 4. 可以将函数内部创建的  变量的地址 传递给  调用者
+func createValue() *int {
+	x := 10   // 在函数内部创建变量
+	return &x // 返回变量的地址
+}
+
+func main() {
+	p := createValue()
+	fmt.Println(*p) // 10
 }
