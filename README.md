@@ -23,5 +23,6 @@
 - https://gfw.go101.org/article/101.html#book-index
 
 ### Go 学习笔记
-- https://juejin.cn/user/2963939081856328/columns
-- https://juejin.cn/user/1591748570121016/posts
+- https://juejin.cn/user/2963939081856328/columns  *****
+- https://juejin.cn/user/1591748570121016/posts *****
+- https://cloud.tencent.com/developer/column/79566?tag=10174  ****

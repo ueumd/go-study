@@ -1,4 +1,4 @@
-package main
+package _defer
 
 //老虞要学GoLang-函数(上) http://www.cnblogs.com/howDo/archive/2013/06/04/GoLang-function.html
 import (

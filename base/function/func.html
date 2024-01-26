@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+   const hello = (a) => () => {
+       console.log(a)}
+
+   let fn = hello(100)
+   fn()
+
+
+   function test(callback) {
+       callback(500)
+   }
+
+   test(function (hello) {
+       console.log(hello) // 500
+   })
+
+</script>
+</body>
+</html>
