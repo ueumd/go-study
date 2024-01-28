@@ -22,6 +22,10 @@
 - https://github.com/golang101/golang101
 - https://gfw.go101.org/article/101.html#book-index
 
+
+### Advanced Go Programming
+- https://docs.golangjob.cn/advanced-go-programming-book/
+
 ### Go 学习笔记
 - https://juejin.cn/user/2963939081856328/columns  *****
 - https://juejin.cn/user/1591748570121016/posts *****
