@@ -125,15 +125,61 @@ func cut() {
 }
 
 func delSlice() {
-	a := []int{1, 2, 3}
 
-	fmt.Println(a)
-	//
+	fmt.Println("----------删除操作----------")
+
+	str := []string{"A", "B", "C", "D", "E", "F"}
+
+	fmt.Println(str)
+
 	//a = append(a[:i], a[i+1:]...) // 删除中间1个元素
 	//a = append(a[:i], a[i+N:]...) // 删除中间N个元素
-	//
+
 	//a = a[:i+copy(a[i:], a[i+1:])] // 删除中间1个元素
 	//a = a[:i+copy(a[i:], a[i+N:])] // 删除中间N个元素
+
+	//a = append(a[:i], a[i+1:]...) // 删除中间1个元素
+	str = append(str[:3], str[4:]...) // 删除D元素
+	fmt.Println("str: ", str)         // str:  [A B C E F]
+
+}
+
+type CityVO struct {
+	Name      string    `json:"name"`
+	Id        string    `json:"id"`
+	LevelType string    `json:"levelType"`
+	Children  []*CityVO `json:"children"`
+}
+
+func cityList() {
+	hotCityList := make([]CityVO, 0)
+	hotCityList = append(hotCityList,
+		CityVO{
+			Name:      "北京",
+			Id:        "110100",
+			LevelType: "2",
+		},
+		CityVO{
+			Name:      "上海",
+			Id:        "430100",
+			LevelType: "2",
+			Children:  make([]*CityVO, 0),
+		},
+		CityVO{
+			Name:      "杭州",
+			Id:        "330100",
+			LevelType: "2",
+		},
+	)
+
+	fmt.Println("hotCityList: ", hotCityList)
+	// hotCityList:  [{北京 110100 2 []} {上海 430100 2 []} {杭州 330100 2 []}]
+
+	fmt.Println(hotCityList[1].Name) // 上海
+
+	fmt.Printf("%+v", hotCityList)
+	// [{Name:北京 Id:110100 LevelType:2 Children:[]} {Name:上海 Id:430100 LevelType:2 Children:[]} {Name:杭州 Id:330100 LevelType:2 Children:[]}]
+
 }
 
 func main() {
@@ -144,4 +190,8 @@ func main() {
 	testCopy()
 
 	cut()
+
+	delSlice()
+
+	cityList()
 }

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    const list = [
+        {Id: 1, ParentId: 0, Name: "系统总览", Route: "/systemOverview", Icon: "icon-system"},
+        {Id: 2, ParentId: 0, Name: "系统配置", Route: "/systemConfig", Icon: "icon-config",},
+        {Id: 8, ParentId: 0, Name: "用户设置", Route: "/user", Icon: "icon-config",},
+
+        {Id: 3, ParentId: 1, Name: "资产", Route: "/asset", Icon: "icon-asset",},
+        {Id: 4, ParentId: 1, Name: "动环", Route: "/pe", Icon: "icon-pe",},
+
+        {Id: 5, ParentId: 2, Name: "菜单配置", Route: "/menuConfig", Icon: "icon-menu-config",},
+        {Id: 6, ParentId: 3, Name: "设备", Route: "/device", Icon: "icon-device",},
+        {Id: 7, ParentId: 3, Name: "机柜", Route: "/device", Icon: "icon-device",},
+    ]
+
+    function getTreeIterative(list, parentId) {
+        const memo = {}
+        list.forEach(v => {
+            if( memo[v.Id]) {
+                v.Children = memo[v.Id].Children
+                memo[v.Id] = v
+            } else {
+                v.Children = []
+                memo[v.Id] = v
+            }
+            if(memo[v.ParentId]) {
+                memo[v.ParentId].Children.push(memo[v.Id])
+            } else {
+                memo[v.ParentId] = memo[v.Id]
+            }
+        })
+        return memo[parentId].Children
+    }
+
+    const res = getTreeIterative(list, 0)
+    console.log(res)
+</script>
+</body>
+</html>

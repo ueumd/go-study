@@ -13,6 +13,24 @@ import (
 3. 循环链表，就是它一直往下找数据节点，最后回到了自己那个节点，形成了一个回路。循环单链表和循环双链表的区别就是，一个只能一个方向走，一个两个方向都可以走。
 */
 
+type Container interface {
+	IsEmpty() bool
+	Size() int
+	Clear()
+	Values() []interface{}
+}
+
+type List interface {
+	Get(index int) (interface{}, bool)
+	Remove(index int)
+	Add(values ...interface{})
+	Contains(values ...interface{}) bool
+	Swap(index1, index2 int)
+	Insert(index int, values ...interface{})
+	Set(index int, value interface{})
+	Container
+}
+
 // 链表节点
 type Node struct {
 	value interface{} // 节点元素
