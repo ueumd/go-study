@@ -5,17 +5,24 @@ import (
 	"time"
 )
 
-func init() {
-	/**
-	 用 make 初始化通道
-	chanName = make(chan chanType, bufferSize) 第二个参数是可选的，用于指定通道最多可以缓存多少个元素，默认值是 0，无缓冲通道
+/**
+var ch1 chan int       // 声明一个传递整型的通道
+var ch2 chan bool      // 声明一个传递布尔值的通道
+var ch3 chan []int     // 声明一个传递int切片的通道
+var ch4 chan struct{}  // 声明一个struct的通道
 
-	court := make(chan int)
-	*/
+*/
 
+/*
+*
+用 make 初始化通道
+chanName = make(chan chanType, bufferSize)
+第二个参数是可选的，用于指定通道最多可以缓存多少个元素，默认值是 0，无缓冲通道
+*/
+func makeChan() {
 	//没有缓冲
 	messages := make(chan string)
-	//go func() { messages <- "ping" }()
+
 	go func() {
 		messages <- "ping" //匿名往通道 messages里发送一个消息ping
 		time.Sleep(time.Millisecond)
